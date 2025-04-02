@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OLX Clone</title>
+    <style>
+        /* Modern Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .search-box {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+        input {
+            flex: 1;
+            margin-right: 10px;
+        }
+        button {
+            background: #ff4500;
+            color: white;
+            cursor: pointer;
+        }
+        .sell-btn {
+            background: green;
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            text-align: center;
+        }
+        .product img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .product h3, .product p {
+            margin: 5px 0;
+        }
+        .sell-form {
+            display: none;
+            flex-direction: column;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .sell-form input, .sell-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .close-btn {
+            background: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>OLX Clone</header>
+
+<div class="container">
+    <!-- Search Bar -->
+    <div class="search-box">
+        <input type="text" id="search-bar" placeholder="Search products...">
+        <button onclick="searchProducts()">Search</button>
+    </div>
+
+    <!-- Sell Button -->
+    <button onclick="toggleSellForm()" class="sell-btn">Sell Your Product</button>
+
+    <!-- Product Upload Form -->
+    <div id="sell-form" class="sell-form">
+        <h2>Sell Your Product</h2>
+        <input type="text" id="name" placeholder="Product Name" required>
+        <textarea id="description" placeholder="Product Description" required></textarea>
+        <input type="number" id="price" placeholder="Price" required>
+        <input type="text" id="phone" placeholder="Phone Number" required>
+        <input type="file" id="image" accept="image/*" required>
+        <button onclick="uploadProduct()">Upload Product</button>
+        <button onclick="toggleSellForm()" class="close-btn">Close</button>
+    </div>
+
+    <!-- Product List -->
+    <h2>Latest Products</h2>
+    <div id="product-list" class="product-container"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", loadProducts);
+
+    function loadProducts() {
+        let products = JSON.parse(localStorage.getItem("products")) || [];
+        let container = document.getElementById("product-list");
+        container.innerHTML = "";
+
+        products.forEach(product => {
+            let productElement = document.createElement("div");
+            productElement.classList.add("product");
+            productElement.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <p><strong>Price:</strong> $${product.price}</p>
+                <p><strong>Phone:</strong> ${product.phone}</p>
+            `;
+            container.appendChild(productElement);
+        });
+    }
+
+    function searchProducts() {
+        let query = document.getElementById("search-bar").value.toLowerCase();
+        let products = JSON.parse(localStorage.getItem("products")) || [];
+        let filteredProducts = products.filter(product => 
+            product.name.toLowerCase().includes(query) || 
+            product.description.toLowerCase().includes(query)
+        );
+
+        let container = document.getElementById("product-list");
+        container.innerHTML = "";
+
+        filteredProducts.forEach(product => {
+            let productElement = document.createElement("div");
+            productElement.classList.add("product");
+            productElement.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.description}</p>
+                <p><strong>Price:</strong> $${product.price}</p>
+                <p><strong>Phone:</strong> ${product.phone}</p>
+            `;
+            container.appendChild(productElement);
+        });
+    }
+
+    function uploadProduct() {
+        let name = document.getElementById("name").value;
+        let description = document.getElementById("description").value;
+        let price = document.getElementById("price").value;
+        let phone = document.getElementById("phone").value;
+        let imageFile = document.getElementById("image").files[0];
+
+        if (!imageFile) {
+            alert("Please select an image.");
+            return;
+        }
+
+        let reader = new FileReader();
+        reader.onload = function(event) {
+            let imageUrl = event.target.result;
+
+            let product = { name, description, price, phone, image: imageUrl };
+            let products = JSON.parse(localStorage.getItem("products")) || [];
+            products.push(product);
+            localStorage.setItem("products", JSON.stringify(products));
+
+            document.getElementById("sell-form").style.display = "none";
+            loadProducts();
+        };
+        reader.readAsDataURL(imageFile);
+    }
+
+    function toggleSellForm() {
+        let form = document.getElementById("sell-form");
+        form.style.display = form.style.display === "none" || form.style.display === "" ? "flex" : "none";
+    }
+</script>
+
+</body>
+</html>

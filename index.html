@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Product</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #ffffff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h2 {
+      margin-top: 30px;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 25px 30px;
+      border-radius: 16px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      max-width: 420px;
+      width: 90%;
+      margin: 20px auto;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #4CAF50;
+      outline: none;
+      box-shadow: 0 0 0 2px #a5d6a7;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      border: none;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .back-button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2196F3;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      background-color: #1e88e5;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Upload Your Product</h2>
+
+  <div class="form-container">
+    <form id="uploadForm">
+      <input type="text" id="name" placeholder="Product Name" required />
+      <select id="category">
+        <option value="electronics">Electronics</option>
+        <option value="fashion">Fashion</option>
+        <option value="home">Home</option>
+        <option value="vehicles">Vehicles</option>
+        <option value="real_estate">Real Estate</option>
+        <option value="jobs">Jobs</option>
+        <option value="services">Services</option>
+        <option value="education">Education</option>
+        <option value="sports">Sports</option>
+        <option value="toys">Toys</option>
+        <option value="books">Books</option>
+      </select>
+      <input type="number" id="price" placeholder="Price ($)" required />
+      <input type="text" id="phone" placeholder="Phone Number" required />
+      <input type="text" id="location" placeholder="Location" required />
+      <input type="file" id="image" required />
+      <button type="submit">Upload Product</button>
+    </form>
+    <button class="back-button" onclick="window.location.href='https://catlistmew.netlify.app/'">
+      Back Home
+    </button>
+  </div>
+
+  <script>
+    document.getElementById("uploadForm").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      let formData = new FormData();
+      formData.append("name", document.getElementById("name").value);
+      formData.append("category", document.getElementById("category").value);
+      formData.append("price", document.getElementById("price").value);
+      formData.append("phone", document.getElementById("phone").value);
+      formData.append("location", document.getElementById("location").value);
+      formData.append("image", document.getElementById("image").files[0]);
+
+      let response = await fetch("http://localhost:5000/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      let result = await response.json();
+      alert(result.message);
+    });
+  </script>
+
+</body>
+</html>

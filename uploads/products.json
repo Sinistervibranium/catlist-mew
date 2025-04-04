@@ -1,0 +1,82 @@
+[
+  {
+    "name": "shaikh",
+    "category": "electronics",
+    "price": "500",
+    "phone": "07981621684",
+    "location": "India",
+    "imagePath": "1.jpg"
+  },
+  {
+    "name": "shaikh",
+    "category": "electronics",
+    "price": "500",
+    "phone": "07981621684",
+    "location": "India",
+    "imagePath": "2.jpg"
+  },
+  {
+    "name": "shaikh",
+    "category": "electronics",
+    "price": "500",
+    "phone": "07981621684",
+    "location": "India",
+    "imagePath": "3.jpg"
+  },
+  {
+    "name": "shaikh",
+    "category": "electronics",
+    "price": "500",
+    "phone": "07981621684",
+    "location": "India",
+    "imagePath": "4.jpg"
+  },
+  {
+    "name": "shaikh",
+    "category": "electronics",
+    "price": "500",
+    "phone": "07981621684",
+    "location": "India",
+    "imagePath": "5.jpg"
+  },
+  {
+    "name": "shaikh ghouse",
+    "category": "services",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "India",
+    "imagePath": "6.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "services",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "India",
+    "imagePath": "7.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "services",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "India",
+    "imagePath": "8.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "services",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "India",
+    "imagePath": "9.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "services",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "India",
+    "imagePath": "10.jpg"
+  }
+]

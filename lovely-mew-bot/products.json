@@ -1,0 +1,74 @@
+[
+  {
+    "name": "ABC Phone",
+    "category": "Electronics",
+    "price": "12000",
+    "phone": "03001234567",
+    "location": "Karachi",
+    "owner": "Ahmed",
+    "image": "uploads/AgACAgUAAxkBAAM3Z_G__xklj02k_qMqXDGi8PrF4ZIAAg3FMRubG5BX0MANvudIvD4BAAMCAAN5AAM2BA.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "service ",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "india ",
+    "owner": "shaikh mohammad ghouse",
+    "image": "uploads/AgACAgUAAxkBAAM7Z_HCV5Z4Cby8kBOXQjSY3d2NuOEAAhLFMRubG5BX0Yt9Pm1DkX8BAAMCAAN5AAM2BA.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "service ",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "india ",
+    "owner": "shaikh mohammad ghouse",
+    "image": "uploads/AgACAgUAAxkBAAM7Z_HCV5Z4Cby8kBOXQjSY3d2NuOEAAhLFMRubG5BX0Yt9Pm1DkX8BAAMCAAN5AAM2BA.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "service ",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "india ",
+    "owner": "shaikh mohammad ghouse",
+    "image": "uploads/AgACAgUAAxkBAAM7Z_HCV5Z4Cby8kBOXQjSY3d2NuOEAAhLFMRubG5BX0Yt9Pm1DkX8BAAMCAAN5AAM2BA.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "service ",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "india ",
+    "owner": "shaikh mohammad ghouse",
+    "image": "uploads/AgACAgUAAxkBAAM7Z_HCV5Z4Cby8kBOXQjSY3d2NuOEAAhLFMRubG5BX0Yt9Pm1DkX8BAAMCAAN5AAM2BA.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "service ",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "india ",
+    "owner": "shaikh mohammad ghouse",
+    "image": "uploads/AgACAgUAAxkBAAM7Z_HCV5Z4Cby8kBOXQjSY3d2NuOEAAhLFMRubG5BX0Yt9Pm1DkX8BAAMCAAN5AAM2BA.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "service ",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "india ",
+    "owner": "shaikh mohammad ghouse",
+    "image": "uploads/AgACAgUAAxkBAAM7Z_HCV5Z4Cby8kBOXQjSY3d2NuOEAAhLFMRubG5BX0Yt9Pm1DkX8BAAMCAAN5AAM2BA.jpg"
+  },
+  {
+    "name": "I need developer ",
+    "category": "service ",
+    "price": "100",
+    "phone": "+917981621684",
+    "location": "india ",
+    "owner": "shaikh mohammad ghouse",
+    "image": "uploads/AgACAgUAAxkBAAM7Z_HCV5Z4Cby8kBOXQjSY3d2NuOEAAhLFMRubG5BX0Yt9Pm1DkX8BAAMCAAN5AAM2BA.jpg"
+  }
+]
